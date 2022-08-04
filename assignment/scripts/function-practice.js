@@ -80,9 +80,11 @@ function getLast( fruitArray ) {
   return fruitArray[fruitArray.length-1];
   }
 
-let fruitArray =['apple', 'orange', 'kiwi'];
-console.log(`Test - ${getLast(fruitArray)}`);
+let fruitArray = ['apple', 'orange', 'kiwi', 'cherry'];
+console.log(`Test - ${getLast(fruitArray)}.`);
 
+fruitArray = [];
+console.log(`Test - ${getLast(fruitArray)}.`);
 
 
 
@@ -90,27 +92,20 @@ console.log(`Test - ${getLast(fruitArray)}`);
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
-function find( value, colorArray ){
-  for (i=0; i<colorArray.length; i++){
-    if (value===colorArray[i]){
+
+function find( value, array ){
+  for (i=0; i<array.length; i++){
+    if (value === array[i]){
       return true;
     }
-    else{
-      return false;
-    }
   }
+return false;
 }
 
-let colorArray = ['red', 'green', 'blue', 'purple', 12]
-console.log(`Test - ${find('green', fruitArray)}`)
-console.log(`Test - ${find('purple', fruitArray)}`)
-console.log(`Test - ${find(20, fruitArray)}`)
-
-//I DON'T KNOW WHAT'S WRONG!!!!!!!!!!!!!!!!
-
-
-
-
+let testArray = [1, 2, 3, 4, 5];
+console.log(`Test - ${find(1, testArray)}`);
+console.log(`Test - ${find(5, testArray)}`);
+console.log(`Test - ${find(20, testArray)}`);
 
 // ----------------------
 // Stretch Goals
@@ -118,7 +113,10 @@ console.log(`Test - ${find(20, fruitArray)}`)
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (letter === string.charAt(0)){
+    return true;
+  }
+return false;
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
@@ -128,7 +126,7 @@ console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll(numberArray) {
+function sumAll(numberArray){
   let sum = 0
   for (i=0; i<numberArray.length; i++){
      sum += numberArray[i];
@@ -136,8 +134,8 @@ function sumAll(numberArray) {
   return sum;
 }
   
-let numberArray = [20, 10, 100]
-console.log(`Test - ${sumAll(numberArray)}`)
+let numberArray = [20, 10, 100];
+console.log(`Test - ${sumAll(numberArray)}`);
 
  
 
@@ -146,26 +144,57 @@ console.log(`Test - ${sumAll(numberArray)}`)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 
-function posNumber(firstArray){
-  return firstArray[i] > 0;
-}
 
-function newArray(firstArray){
-  for (value of firstArray){
-    if (value > 0){
-      secondArray = [firstArray.filter(posNumber)];
-      return secondArray;
+
+function posNum(array){
+  for (value of array){
+    if (value >= 0){
+      return array = array.filter(function(value){
+          return value >= 0;
+        })
     }
-    else{
-      return emptyArray=[];
-    }
+  return array = [];
   }
 }
 
+let array = [1, -3, 4, -8, 7, -9];
+console.log(`Test - ${posNum(array)}`);
 
-let firstArray = [1, 3, 4, -8, -7, -9]
-console.log(newArray(firstArray));
+
+
+
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+// Mode: Very Easy
+// Problem: Write a function that takes an integer minutes and converts it to seconds.
+// They want me to write a code, that takes 5 and converts it into the seconds within that number.
+
+function seconds(time){
+  return time * 60;
+}
+
+console.log(`Test - ${seconds(10)}`);
+
+
+//Mode: Easy
+//"Christmas Eve is almost upon us, so naturally we need to prepare some milk and cookies for Santa! 
+//Create a function that accepts a Date object and returns true if it's Christmas Eve (December 24th) 
+//and false otherwise."
+
+function timeForMilkAndCookies(date) {
+  let year;
+  let month;
+  let day;
+  date = [year, month, day]
+    if (year >= 1, month === 12 && day === 24 ){
+      return true;
+    }
+  return false;
+}
+
+console.log(`It is Christmas ${timeForMilkAndCookies(3030, 12, 01)}`);
+console.log(`It is Christmas ${timeForMilkAndCookies(2053, 12, 24)}`);
+
