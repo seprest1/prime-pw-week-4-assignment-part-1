@@ -10,6 +10,7 @@ function hello() {
 }
 // Call the function to test
 console.log('Test - should say "Hello World!"', hello());
+
   //Was I supposed to do something with this question, or was it just an example?
   //It looks completed, to me.
 
@@ -71,6 +72,10 @@ console.log( 'isPositive - should say false', isPositive(0) );
 console.log( 'isPositive - should say false', isPositive(-3) );
 
 
+//Curious about zero in this case, which is neither positive or negative. 
+//Should I have created a second if case, to give an undefined result?
+
+
 
 
 
@@ -80,11 +85,14 @@ function getLast( fruitArray ) {
   return fruitArray[fruitArray.length-1];
   }
 
-let fruitArray = ['apple', 'orange', 'kiwi', 'cherry'];
-console.log(`Test - ${getLast(fruitArray)}.`);
+let fruitArray = ['apple', 'orange', 'kiwi'];
+console.log(`Test - expect kiwi - ${getLast(fruitArray)}.`);
+
+fruitArray = ['apple', 'orange', 'kiwi', 'cherry'];
+console.log(`Test - expect cherry - ${getLast(fruitArray)}.`);
 
 fruitArray = [];
-console.log(`Test - ${getLast(fruitArray)}.`);
+console.log(`Test - expect undefined - ${getLast(fruitArray)}.`);
 
 
 
@@ -103,9 +111,9 @@ return false;
 }
 
 let testArray = [1, 2, 3, 4, 5];
-console.log(`Test - ${find(1, testArray)}`);
-console.log(`Test - ${find(5, testArray)}`);
-console.log(`Test - ${find(20, testArray)}`);
+console.log(`Test - expect true - ${find(1, testArray)}`);
+console.log(`Test - expect true - ${find(5, testArray)}`);
+console.log(`Test - expect false - ${find(20, testArray)}`);
 
 // ----------------------
 // Stretch Goals
@@ -120,6 +128,9 @@ return false;
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
+console.log( 'isFirstLetter - should say true', isFirstLetter('k', 'kiwi') );
+console.log( 'isFirstLetter - should say false', isFirstLetter('w', 'kiwi') );
+
 
 
 
@@ -157,8 +168,13 @@ function posNum(array){
   }
 }
 
-let array = [1, -3, 4, -8, 7, -9];
-console.log(`Test - ${posNum(array)}`);
+let array = [1, -3, 4, -8, 7, 5, -9];
+console.log(`Test - should say 1, 4, 7, 5 - ${posNum(array)}`);
+
+array = [-1, -3, -4];
+console.log(`Test - should be an empty array ${posNum(array)}`);
+
+//Not sure why it just ends up as just a blank, instead of [].
 
 
 
@@ -179,22 +195,22 @@ function seconds(time){
 console.log(`Test - ${seconds(10)}`);
 
 
-//Mode: Easy
-//"Christmas Eve is almost upon us, so naturally we need to prepare some milk and cookies for Santa! 
-//Create a function that accepts a Date object and returns true if it's Christmas Eve (December 24th) 
-//and false otherwise."
 
-function timeForMilkAndCookies(date) {
-  let year;
-  let month;
-  let day;
-  date = [year, month, day]
-    if (year >= 1, month === 12 && day === 24 ){
-      return true;
-    }
-  return false;
-}
+///////////////////////////////////////////////////////////////////////
 
-console.log(`It is Christmas ${timeForMilkAndCookies(3030, 12, 01)}`);
-console.log(`It is Christmas ${timeForMilkAndCookies(2053, 12, 24)}`);
+// We need a function that can transform a number (integer) into a string.
+
+// What ways of achieving this do you know?
+
+// Examples (input --> output):
+// 123  --> "123"
+// 999  --> "999"
+// -100 --> "-100"
+
+function numberToString(num) {
+  return num.toString();
+ }
+
+ console.log(123);
+ console.log(`Test - should be '123' - ${numberToString(123)}`);
 
