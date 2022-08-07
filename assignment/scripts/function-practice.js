@@ -11,12 +11,6 @@ function hello() {
 // Call the function to test
 console.log('Test - should say "Hello World!"', hello());
 
-  //Was I supposed to do something with this question, or was it just an example?
-  //It looks completed, to me.
-
-
-
-
 
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
